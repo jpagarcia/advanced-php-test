@@ -1,0 +1,13 @@
+! Code smells:
+
+- The file structure could've been organized better
+? how
+- Export file is messy. should be more organized into classes
+    - should only contain the instantiation of the controller and the export call
+- the sequence of the code should be easy to read
+    - e.g. requiring initial files should be on top
+- unused import in export.php
+    - Illuminate/Support
+    - include('include/utils.php');
+    - require_once('vendor/autoload.php');
+- the processing of the $_REQUEST should be done within the controller

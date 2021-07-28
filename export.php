@@ -10,21 +10,11 @@
  * https://laravel.com/docs/5.8/collections
  */
 
- use Illuminate\Support;
+require_once('include/utils.php');
+require_once('classes/Request.php');
+require_once('controllers/ExportController.php');
 
-// prepare the request & process the arguments
-$database = 'nba2019';
-include('include/utils.php');
-require_once('vendor/autoload.php');
-require_once('classes/Controller.php');
+$request = new Request($_REQUEST);
 
-// process the args
-$args = collect($_REQUEST);
-$format = $args->pull('format') ?: 'html';
-$type = $args->pull('type');
-if (!$type) {
-    exit('Please specify a type');
-}
-
-$controller = new Controller($args);
-echo $controller->export($type, $format);
+$export = new ExportController($request);
+echo $export->output();

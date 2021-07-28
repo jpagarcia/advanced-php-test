@@ -5,7 +5,7 @@ use Illuminate\Support;
 
 // global connection object
 global $mysqli_db;
-$mysqli_db = new mysqli('localhost', 'root', '', $database ?: 'employees');
+$mysqli_db = new mysqli('localhost', 'root', '', $database ?? 'nba2019');
 
 /**
  * Execute a query & return the resulting data as an array of assoc arrays
